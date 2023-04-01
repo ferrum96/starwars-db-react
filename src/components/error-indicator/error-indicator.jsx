@@ -15,7 +15,7 @@ const ErrorIndicator = () => {
 				(but we already sent droids to fix it)
 			</span>
 		</div>
-	);
-};
+	)
+}
 
 export default ErrorIndicator;
