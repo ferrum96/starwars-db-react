@@ -7,26 +7,30 @@ export default class RandomPlanet extends Component {
 
 	constructor() {
 		super();
+		this.state = {
+			planet: {}
+		}
+		this.swapiService = new SwapiService();
 		this.updatePlanet();
 	}
 
-	state = {
-		planet: {}
+	componentDidMount() {
+		this.interval = setInterval(() => this.updatePlanet(), 5000);
 	}
 
-	swapiService = new SwapiService();
+	componentWillUnmount() {
+		clearInterval(this.interval);
+	}
 
 	updatePlanet() {
-
 		const id = Math.floor(Math.random() * 15) + 2;
-
+		
 		this.swapiService
 			.getPlanetById(id)
 			.then(planet => this.setState({ planet }));
 	}
 
 	render() {
-
 		const { planet: { id, name, population, rotationPeriod, diameter } } = this.state;
 
 		return (
