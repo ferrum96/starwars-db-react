@@ -7,19 +7,17 @@ import "./random-planet.css"
 
 export default class RandomPlanet extends Component {
 
-	constructor() {
-		super();
-		this.state = {
-			planet: {},
-			loading: true,
-			error: false
-		}
-		this.swapiService = new SwapiService();
-		this.updatePlanet();
+	swapiService = new SwapiService();
+
+	state = {
+		planet: {},
+		loading: true,
+		error: false
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(() => this.updatePlanet(), 7000);
+		this.updatePlanet();
+		this.interval = setInterval(this.updatePlanet, 6000);
 	}
 
 	componentWillUnmount() {
@@ -40,7 +38,7 @@ export default class RandomPlanet extends Component {
 		});
 	}
 
-	updatePlanet() {
+	updatePlanet = () => {
 		const id = Math.floor(Math.random() * 15) + 2;
 
 		this.swapiService
