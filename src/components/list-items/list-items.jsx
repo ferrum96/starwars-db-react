@@ -37,13 +37,13 @@ export default class ListItems extends Component {
 	render() {
 		const { listItems, loading, error } = this.state;
 
-		const items = listItems.map(({id, name}) => {
+		const items = listItems.map((item) => {
 			return (
 				<li 
-				key={id} 
+				key={item.id} 
 				className="list-group-item"
-				onClick={() => this.props.onSelectedItem(id)}>
-					{name}
+				onClick={() => this.props.onSelectedItem(item)}>
+					{item.name}
 				</li>
 			)
 		});
