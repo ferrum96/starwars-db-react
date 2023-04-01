@@ -7,9 +7,14 @@ import ListItems from "../list-items/list-items";
 import PersonDetails from "../person-details/person-details";
 
 export default class App extends Component {
-
 	state = {
-		person: { id: '1', name: 'Luke Skywalker', gender: 'male', birthYear: '19BBY', eyeColor: 'blue' }
+		person: {
+			id: '1',
+			name: 'Luke Skywalker',
+			gender: 'male',
+			birthYear: '19BBY',
+			eyeColor: 'blue'
+		}
 	}
 
 	onSelectedItem = (person) => {
@@ -25,7 +30,6 @@ export default class App extends Component {
 			<div className="container">
 				<Header />
 				<RandomPlanet />
-
 				<div className="row mb2">
 					<div className="col-md-6">
 						<ListItems onSelectedItem={this.onSelectedItem} />

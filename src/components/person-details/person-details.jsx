@@ -3,9 +3,7 @@ import { Component } from "react";
 import "./person-details.css"
 
 export default class PersonDetails extends Component {
-
 	render() {
-
 		const { person } = this.props;
 
 		return (

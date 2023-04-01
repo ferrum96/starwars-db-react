@@ -5,7 +5,6 @@ import Loader from "../loader/loader";
 import SwapiService from "../../services/swapi-service";
 
 export default class ListItems extends Component {
-
 	swapiService = new SwapiService();
 
 	state = {
