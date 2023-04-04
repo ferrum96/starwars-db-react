@@ -5,6 +5,7 @@ import Loader from "../loader/loader";
 import SwapiService from "../../services/swapi-service";
 
 export default class ListItems extends Component {
+
 	swapiService = new SwapiService();
 
 	state = {
@@ -36,13 +37,13 @@ export default class ListItems extends Component {
 	render() {
 		const { listItems, loading, error } = this.state;
 
-		const items = listItems.map((item) => {
+		const items = listItems.map(({ id, name }) => {
 			return (
-				<li 
-				key={item.id} 
-				className="list-group-item"
-				onClick={() => this.props.onSelectedItem(item)}>
-					{item.name}
+				<li
+					key={id}
+					className="list-group-item"
+					onClick={() => this.props.onSelectedItem(id)}>
+					{name}
 				</li>
 			)
 		});
