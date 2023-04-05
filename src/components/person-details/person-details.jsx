@@ -20,8 +20,8 @@ export default class PersonDetails extends Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.personId !== prevProps.personId) {
-			this.updatePerson();
 			this.setState({ loading: true })
+			this.updatePerson();
 		}
 	}
 
@@ -41,11 +41,7 @@ export default class PersonDetails extends Component {
 
 	updatePerson() {
 		const { personId } = this.props;
-
-		if (!personId) {
-			return;
-		}
-
+		
 		this.swapiService
 			.getPersonById(personId)
 			.then(person => this.onPersonLoaded(person))
