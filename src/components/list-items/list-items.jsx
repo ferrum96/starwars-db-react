@@ -14,13 +14,14 @@ export default class ListItems extends Component {
 	}
 
 	componentDidMount() {
-		this.swapiService
-			.getAllPeople()
-			.then(this.onLoadedPerson)
+		const { getData } = this.props;
+
+		getData()
+			.then(this.onLoadedItems)
 			.catch(this.onError)
 	}
 
-	onLoadedPerson = (listItems) => {
+	onLoadedItems = (listItems) => {
 		this.setState({
 			listItems,
 			loading: false
@@ -34,23 +35,27 @@ export default class ListItems extends Component {
 		})
 	}
 
-	render() {
-		const { listItems, loading, error } = this.state;
+	renderItems(listItems) {
+		return listItems.map(({ id, ...item }) => {
+			const label = this.props.renderItem(item);
 
-		const items = listItems.map(({ id, name }) => {
 			return (
 				<li
 					key={id}
 					className="list-group-item"
 					onClick={() => this.props.onSelectedItem(id)}>
-					{name}
+					{label}
 				</li>
 			)
 		});
+	}
+
+	render() {
+		const { listItems, loading, error } = this.state;
 
 		return (
 			<ul className="item-list list-group">
-				{error ? null : loading ? <Loader /> : items}
+				{error ? null : loading ? <Loader /> : this.renderItems(listItems)}
 			</ul>
 		)
 	}
