@@ -7,6 +7,8 @@ import SwapiService from "../../services/swapi-service";
 import ErrorButton from "../error-button/error-button";
 import ErrorIndicator from "../error-indicator/error-indicator";
 import PeoplePage from "../people-page/people-page";
+import PlanetsPage from "../planets-page/planets-page";
+import StarshipsPage from "../starships-page/starships-page";
 
 export default class App extends Component {
 
@@ -34,6 +36,8 @@ export default class App extends Component {
 				<RandomPlanet />
 				<ErrorButton />
 				<PeoplePage />
+				<PlanetsPage />
+				<StarshipsPage />
 			</div>
 		)
 	}
