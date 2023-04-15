@@ -1,10 +1,11 @@
 import { Component } from "react";
 import ListItems from "../list-items/list-items";
-import ErrorIndicator from "../error-indicator/error-indicator";
 
 import "./starships-page.css"
 import SwapiService from "../../services/swapi-service";
 import StarshipDetails from "../starship-details/starship-details";
+import RowPage from "../row-page/row-page";
+import ErrorBounry from "../error-boudry/error-boundry";
 
 
 export default class StarshipsPage extends Component {
@@ -12,12 +13,7 @@ export default class StarshipsPage extends Component {
 	swapiService = new SwapiService();
 
 	state = {
-		selectedStarshipId: 5,
-		hasError: false
-	}
-
-	componentDidCatch() {
-		this.setState({ hasError: true });
+		selectedStarshipId: 5
 	}
 
 	onSelectedStarship = (selectedStarshipId) => {
@@ -26,24 +22,21 @@ export default class StarshipsPage extends Component {
 
 	render() {
 
-		const { selectedStarshipId, hasError } = this.state;
-
-		if (hasError) {
-			return <ErrorIndicator />
-		}
+		const { selectedStarshipId } = this.state;
+		const listStarships = (
+			<ListItems
+				onSelectedItem={this.onSelectedStarship}
+				getData={this.swapiService.getAllStarships}
+				renderItem={({ name, costInCredits }) => `${name} ( ${costInCredits} )`} />
+		);
+		const starshipDetails = (
+			<StarshipDetails selectedStarshipId={selectedStarshipId} />
+		);
 
 		return (
-			<div className="planets-page row mb2">
-				<div className="col-md-6">
-					<ListItems
-						onSelectedItem={this.onSelectedStarship}
-						getData={this.swapiService.getAllStarships}
-						renderItem={({ name, costInCredits }) => `${name} ( ${costInCredits} )`} />
-				</div>
-				<div className="col-md-6">
-					<StarshipDetails selectedStarshipId={selectedStarshipId} />
-				</div>
-			</div>
+			<ErrorBounry>
+				<RowPage left={listStarships} right={starshipDetails} />
+			</ErrorBounry>
 		);
 	}
 }

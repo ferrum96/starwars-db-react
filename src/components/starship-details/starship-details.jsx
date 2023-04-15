@@ -64,8 +64,6 @@ export default class StarshipDetails extends Component {
 const StarshipView = ({ starship }) => {
 	const { id, name, model, manufacturer, costInCredits, length, crew, passengers, cargoCapacity } = starship;
 
-	console.log(id)
-
 	return (
 		<React.Fragment>
 			<img className="starship-image"
