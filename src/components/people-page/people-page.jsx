@@ -1,11 +1,10 @@
 import { Component } from "react";
+import "./people-page.css";
 import ListItems from "../list-items/list-items";
-import PersonDetails from "../person-details/person-details";
-
-import "./people-page.css"
 import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
-import ErrorBounry from "../error-boudry/error-boundry";
+import ItemDetails, { Record } from "../item-details/item-details";
+import ErrorBoundry from "../error-boudry/error-boundry";
 
 export default class PeoplePage extends Component {
 
@@ -22,20 +21,30 @@ export default class PeoplePage extends Component {
 	render() {
 
 		const { selectedPersonId } = this.state;
+		const { getAllPeople, getPersonById, getPersonImageUrl } = this.swapiService;
+
 		const listPeople = (
 			<ListItems
 				onSelectedItem={this.onSelectedPerson}
-				getData={this.swapiService.getAllPeople}
+				getData={getAllPeople}
 				renderItem={({ name, gender }) => `${name} ( ${gender} )`} />
 		);
 		const personDetails = (
-			<PersonDetails selectedPersonId={selectedPersonId} />
+			<ErrorBoundry>
+				<ItemDetails
+					selectedItemId={selectedPersonId}
+					getData={getPersonById}
+					getImageUrl={getPersonImageUrl} >
+					<Record field='gender' label='Gender' />
+					<Record field='birthYear' label='Birth year' />
+					<Record field='eyeColor' label='Eye Color' />
+				</ItemDetails>
+			</ErrorBoundry>
+
 		);
 
 		return (
-			<ErrorBounry>
-				<RowPage left={listPeople} right={personDetails} />
-			</ErrorBounry>
+			<RowPage left={listPeople} right={personDetails} />
 		);
 	}
 }
