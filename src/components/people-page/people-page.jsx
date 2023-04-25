@@ -30,21 +30,20 @@ export default class PeoplePage extends Component {
 				renderItem={({ name, gender }) => `${name} ( ${gender} )`} />
 		);
 		const personDetails = (
-			<ErrorBoundry>
-				<ItemDetails
-					selectedItemId={selectedPersonId}
-					getData={getPersonById}
-					getImageUrl={getPersonImageUrl} >
+			<ItemDetails
+				selectedItemId={selectedPersonId}
+				getData={getPersonById}
+				getImageUrl={getPersonImageUrl} >
 					<Record field='gender' label='Gender' />
 					<Record field='birthYear' label='Birth year' />
 					<Record field='eyeColor' label='Eye Color' />
-				</ItemDetails>
-			</ErrorBoundry>
-
+			</ItemDetails>
 		);
 
 		return (
-			<RowPage left={listPeople} right={personDetails} />
+			<ErrorBoundry>
+				<RowPage left={listPeople} right={personDetails} />
+			</ErrorBoundry>
 		);
 	}
 }

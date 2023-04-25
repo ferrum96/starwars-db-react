@@ -34,13 +34,13 @@ export default class StarshipsPage extends Component {
 				selectedItemId={selectedStarshipId}
 				getData={getStarshipById}
 				getImageUrl={getStarshipImageUrl} >
-				<Record field='model' label='Model' />
-				<Record field='manufacturer' label='Manufacturer' />
-				<Record field='costInCredits' label='Cost In Credits' />
-				<Record field='length' label='Length' />
-				<Record field='crew' label='Crew' />
-				<Record field='passengers' label='Passengers' />
-				<Record field='cargoCapacity' label='Cargo Capacity' />
+					<Record field='model' label='Model' />
+					<Record field='manufacturer' label='Manufacturer' />
+					<Record field='costInCredits' label='Cost In Credits' />
+					<Record field='length' label='Length' />
+					<Record field='crew' label='Crew' />
+					<Record field='passengers' label='Passengers' />
+					<Record field='cargoCapacity' label='Cargo Capacity' />
 			</ItemDetails>
 		);
 
