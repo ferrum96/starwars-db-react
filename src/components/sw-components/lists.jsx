@@ -4,7 +4,7 @@ import ListItems from "../list-items/list-items";
 
 const swapiService = new SwapiService();
 
-const { getAllPeople, getAllPlanets, getAllStarships} = swapiService;
+const { getAllPeople, getAllPlanets, getAllStarships } = swapiService;
 
 const PersonList = withData(ListItems, getAllPeople);
 const PlanetList = withData(ListItems, getAllPlanets);

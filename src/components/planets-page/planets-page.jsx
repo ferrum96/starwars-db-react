@@ -1,10 +1,10 @@
 import { Component } from "react";
 import "./planets-page.css"
-import ListItems from "../list-items/list-items";
 import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
-import ItemDetails, { Record } from "../item-details/item-details";
 import ErrorBoundry from "../error-boudry/error-boundry";
+import { PlanetList } from "../sw-components/lists";
+import { PlanetDetails } from "../sw-components/details";
 
 export default class PlanetsPage extends Component {
 
@@ -19,25 +19,15 @@ export default class PlanetsPage extends Component {
 	}
 
 	render() {
-
 		const { selectedPlanetId } = this.state;
-		const { getAllPlanets, getPlanetById, getPlanetImageUrl } = this.swapiService;
 
 		const listPlanets = (
-			<ListItems
-				onSelectedItem={this.onSelectedPlanet}
-				getData={getAllPlanets}
-				renderItem={({ name, diameter }) => `${name} ( ${diameter} )`} />
+			<PlanetList onSelectedItem={this.onSelectedPlanet}>
+				{({ name, diameter }) => `${name} ( ${diameter} )`}
+			</PlanetList>
 		);
 		const planetDetails = (
-			<ItemDetails
-				selectedItemId={selectedPlanetId}
-				getData={getPlanetById}
-				getImageUrl={getPlanetImageUrl} >
-					<Record field='population' label='Population' />
-					<Record field='rotationPeriod' label='Rotation Period' />
-					<Record field='diameter' label='Diameter' />
-			</ItemDetails>
+			<PlanetDetails selectedItemId={selectedPlanetId}/>
 		);
 
 		return (

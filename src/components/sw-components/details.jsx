@@ -10,10 +10,10 @@ const { getPersonById,
 	getStarshipImageUrl
 } = new SwapiService();
 
-const PersonDetails = ({ selectedPersonId }) => {
+const PersonDetails = ({ selectedItemId }) => {
 	return (
 		<ItemDetails
-			selectedItemId={selectedPersonId}
+			selectedItemId={selectedItemId}
 			getData={getPersonById}
 			getImageUrl={getPersonImageUrl} >
 			<Record field='gender' label='Gender' />
@@ -22,10 +22,10 @@ const PersonDetails = ({ selectedPersonId }) => {
 		</ItemDetails>
 	);
 };
-const PlanetDetails = ({ selectedPlanetId }) => {
+const PlanetDetails = ({ selectedItemId }) => {
 	return (
 		<ItemDetails
-			selectedItemId={selectedPlanetId}
+			selectedItemId={selectedItemId}
 			getData={getPlanetById}
 			getImageUrl={getPlanetImageUrl} >
 			<Record field='population' label='Population' />
@@ -34,10 +34,10 @@ const PlanetDetails = ({ selectedPlanetId }) => {
 		</ItemDetails>
 	);
 };
-const StarshipDetails = ({ selectedStarshipId }) => {
+const StarshipDetails = ({ selectedItemId }) => {
 	return (
 		<ItemDetails
-			selectedItemId={selectedStarshipId}
+			selectedItemId={selectedItemId}
 			getData={getStarshipById}
 			getImageUrl={getStarshipImageUrl} >
 			<Record field='model' label='Model' />

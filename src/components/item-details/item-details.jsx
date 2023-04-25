@@ -4,7 +4,7 @@ import SwapiService from "../../services/swapi-service";
 import Loader from "../loader/loader";
 import ErrorButton from "../error-button/error-button";
 
-const Record = ({item, field, label }) => {
+const Record = ({ item, field, label }) => {
 	return (
 		<li className="list-group-item">
 			<span className="term">{label}</span>
@@ -13,9 +13,7 @@ const Record = ({item, field, label }) => {
 	);
 }
 
-export {
-	Record
-}
+export { Record }
 
 export default class ItemDetails extends Component {
 
@@ -58,7 +56,6 @@ export default class ItemDetails extends Component {
 				});
 			});
 	}
-
 
 	render() {
 		const { item, loading, imageUrl } = this.state;
