@@ -22,9 +22,7 @@ export default class PlanetsPage extends Component {
 		const { selectedPlanetId } = this.state;
 
 		const listPlanets = (
-			<PlanetList onSelectedItem={this.onSelectedPlanet}>
-				{({ name, diameter }) => `${name} ( ${diameter} )`}
-			</PlanetList>
+			<PlanetList onSelectedItem={this.onSelectedPlanet} />
 		);
 		const planetDetails = (
 			<PlanetDetails selectedItemId={selectedPlanetId}/>

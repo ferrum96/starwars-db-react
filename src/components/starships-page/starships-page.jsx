@@ -22,9 +22,7 @@ export default class StarshipsPage extends Component {
 		const { selectedStarshipId } = this.state;
 
 		const listStarships = (
-			<StarshipList onSelectedItem={this.onSelectedStarship} >
-				{({ name, costInCredits }) => `${name} ( ${costInCredits} )`}
-			</StarshipList>
+			<StarshipList onSelectedItem={this.onSelectedStarship} />
 		);
 		const starshipDetails = (
 			<StarshipDetails selectedItemId={selectedStarshipId} />
