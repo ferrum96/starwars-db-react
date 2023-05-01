@@ -4,7 +4,7 @@ import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
 import { StarshipList } from "../sw-components/lists";
-import { StarshipDetails } from "../sw-components/details";
+import StarshipDetails from "../sw-components/starship-details";
 
 export default class StarshipsPage extends Component {
 

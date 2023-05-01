@@ -4,7 +4,7 @@ import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
 import { PlanetList } from "../sw-components/lists";
-import { PlanetDetails } from "../sw-components/details";
+import PlanetDetails from "../sw-components/planet-details";
 
 export default class PlanetsPage extends Component {
 

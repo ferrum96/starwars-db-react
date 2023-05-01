@@ -4,7 +4,7 @@ import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
 import { PersonList } from "../sw-components/lists";
-import { PersonDetails } from "../sw-components/details";
+import PersonDetails from "../sw-components/person-details";
 
 export default class PeoplePage extends Component {
 
