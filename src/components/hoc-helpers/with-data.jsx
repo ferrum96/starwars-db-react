@@ -1,13 +1,15 @@
 import { Component } from "react";
-import ErrorBoundry from "../error-boudry/error-boundry";
 import Loader from "../loader/loader";
+import ErrorIndicator from "../error-indicator/error-indicator";
 
 
 const withData = (View) => {
 	return class extends Component {
 
 		state = {
-			data: null
+			data: null,
+			loading: true,
+			error: false
 		}
 
 		componentDidMount() {
@@ -15,16 +17,21 @@ const withData = (View) => {
 				.then((data) => {
 					this.setState({
 						data,
+						loading: false
+					})
+				})
+				.catch(() => {
+					this.setState({
+						error: true,
+						loading: false
 					})
 				})
 		}
 
 		render() {
-			const { data } = this.state;
+			const { data, loading, error } = this.state;
 			return (
-				<ErrorBoundry>
-					{!data ? <Loader /> : <View {...this.props} data={data} />}
-				</ErrorBoundry>
+				error ? <ErrorIndicator /> : loading ? <Loader /> : <View {...this.props} data={data} />
 			)
 		}
 	}

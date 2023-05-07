@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./item-details.css"
 import SwapiService from "../../services/swapi-service";
 import Loader from "../loader/loader";
-import ErrorButton from "../error-button/error-button";
 
 const Record = ({ item, field, label }) => {
 	return (
@@ -84,7 +83,6 @@ const ItemView = ({ item, imageUrl, children }) => {
 						})
 					}
 				</ul>
-				<ErrorButton />
 			</div>
 		</React.Fragment>
 	)
