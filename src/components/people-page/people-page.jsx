@@ -1,14 +1,11 @@
 import { Component } from "react";
 import "./people-page.css";
-import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
-import { PersonList } from "../sw-components/lists";
 import PersonDetails from "../sw-components/person-details";
+import { PersonList } from "../sw-components/lists";
 
 export default class PeoplePage extends Component {
-
-	swapiService = new SwapiService();
 
 	state = {
 		selectedPersonId: 1

@@ -1,14 +1,11 @@
 import { Component } from "react";
 import "./starships-page.css"
-import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
-import { StarshipList } from "../sw-components/lists";
 import StarshipDetails from "../sw-components/starship-details";
+import { StarshipList } from "../sw-components/lists";
 
 export default class StarshipsPage extends Component {
-
-	swapiService = new SwapiService();
 
 	state = {
 		selectedStarshipId: 5

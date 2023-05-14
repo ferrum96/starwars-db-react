@@ -1,14 +1,11 @@
 import { Component } from "react";
 import "./planets-page.css"
-import SwapiService from "../../services/swapi-service";
 import RowPage from "../row-page/row-page";
 import ErrorBoundry from "../error-boudry/error-boundry";
 import { PlanetList } from "../sw-components/lists";
 import PlanetDetails from "../sw-components/planet-details";
 
 export default class PlanetsPage extends Component {
-
-	swapiService = new SwapiService();
 
 	state = {
 		selectedPlanetId: 2
@@ -25,7 +22,7 @@ export default class PlanetsPage extends Component {
 			<PlanetList onSelectedItem={this.onSelectedPlanet} />
 		);
 		const planetDetails = (
-			<PlanetDetails selectedItemId={selectedPlanetId}/>
+			<PlanetDetails selectedItemId={selectedPlanetId} />
 		);
 
 		return (
